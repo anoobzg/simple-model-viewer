@@ -42,7 +42,7 @@ class Model {
 
     // process scene graph
     const std::filesystem::path ps(filepath);
-    processNode(scene->mRootNode, scene, ps.parent_path());
+    processNode(scene->mRootNode, scene, ps.parent_path().string());
 
     // show info
     std::cout << "[Model] " << filepath << " loaded." << std::endl;
@@ -160,7 +160,7 @@ class Model {
         aiString str;
         mat->GetTexture(aiTextureType_DIFFUSE, i, &str);
         const std::filesystem::path ps(str.C_Str());
-        const std::string texturePath = (psParent / ps).native();
+        const std::string texturePath = (psParent / ps).u8string();
 
         const auto index = hasTexture(texturePath);
         if (index) {
@@ -181,7 +181,7 @@ class Model {
         aiString str;
         mat->GetTexture(aiTextureType_SPECULAR, i, &str);
         const std::filesystem::path ps(str.C_Str());
-        const std::string texturePath = (psParent / ps).native();
+        const std::string texturePath = (psParent / ps).u8string();
 
         const auto index = hasTexture(texturePath);
         if (index) {

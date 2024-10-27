@@ -13,3 +13,6 @@
 [submodule "externals/assimp"]
 	path = externals/assimp
 	url = git@github.com:assimp/assimp.git
+[submodule "cmake"]
+	path = cmake
+	url = https://gitee.com/tjourney/cmake.git
